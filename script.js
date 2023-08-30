@@ -1,6 +1,6 @@
-import { animate_append, animate_append_node } from "./animate_append.js";
+import { append_with_animation } from "./animate_append.js";
 
 const div = document.querySelector(".lang");
 
-animate_append_node(document.body, div);
-animate_append(document.body, div);
+append_with_animation(document.body, div, "char");
+append_with_animation(document.body, div, "text");
