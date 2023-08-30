@@ -10,8 +10,8 @@ const ELEMENT_NODE = 1;
 const TIME = 10;
 
 async function append_with_animation(parent, node, mode = "char") {
-    if (mode === "text") animate_append_node(parent, node);
-    else animate_append(parent, node);
+    if (mode === "text") await animate_append_node(parent, node);
+    else await animate_append(parent, node);
 }
 
 async function animate_append(parent, node) {
