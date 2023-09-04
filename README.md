@@ -1,17 +1,24 @@
-# Animate Append
+# AnimateNode
 
 Append an HTML node with type like animation.
+Implemented as ES6 module.
 
 ## CDN
 
-- <https://cdn.jsdelivr.net/gh/sujaudd1n/animate_append/animate_append.js>
+- <https://cdn.jsdelivr.net/gh/sujaudd1n/animateNode/animateNode.js>
 
-## API
+## Tutorial
 
-Function - ```append_with_animation(parent, node, mode = "char")```
+```js
+// import the object
+import { animateNode } from "./animateNode.js";
 
-- *parent* - node will be append inside parent.
-- *node* - HTML element that will be animated while being appended inside parent
-- *mode* - Mode of animation. **char** and **text** are supported. With char 
-individual chars are type-like appended. With text individual text node 
-are type-like appended.
+// Create or select or get the node you want to append.
+// Assuming you have an HTML node list with div as its parent.
+
+// char-appended animation
+animateNode.char(div, list)
+
+// textnode-appended animation
+animateNode.text(div, list)
+```

@@ -1,4 +1,4 @@
-import { animateNode } from "./animate_append.js";
+import { animateNode } from "./animateNode.js";
 
 const div = document.querySelector(".lang");
 
