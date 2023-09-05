@@ -19,6 +19,7 @@ class AnimateNode {
      * @param {HTMLElement | TextNode} node
      */
     async char(parent, node) {
+        node = node.cloneNode(true);
         await this.execute(parent, node, "char");
     }
 
@@ -28,6 +29,7 @@ class AnimateNode {
      * @param {HTMLElement | TextNode} node
      */
     async text(parent, node) {
+        node = node.cloneNode(true);
         await this.execute(parent, node, "text");
     }
     /**
@@ -44,8 +46,7 @@ class AnimateNode {
     }
 
     /**
-     * Append node inside parent, each text node will appended in type-like
-     * animation.
+     * Implementation of text node animation.
      * @param {HTMLElement} parent element of node.
      * @param {TextNode} node will appended while begin animated.
      */
@@ -55,26 +56,23 @@ class AnimateNode {
     }
 
     /**
-     *
+     * Recursively append node and its child into the parent.
      * @param {HTMLElement} parent element of node.
      * @param {HTMLELEMENT | TextNode} node node that will be appended.
      * @param {string} type specify type of animation char or text.
      */
     async execute(parent, node, type) {
-        const cloned_node = node.cloneNode(true);
-        if (cloned_node.nodeType === this.TEXT_NODE) {
-            if (type === "char") await this.char_animation(parent, cloned_node);
-            else if (type === "text")
-                await this.text_animation(parent, cloned_node);
-        } else if (cloned_node.nodeType === this.ELEMENT_NODE) {
-            const cloned_children = [];
-            cloned_node.childNodes.forEach((element) => {
-                cloned_children.push(element.cloneNode(true));
+        if (node.nodeType === this.TEXT_NODE) {
+            if (type === "char") await this.char_animation(parent, node);
+            else if (type === "text") await this.text_animation(parent, node);
+        } else if (node.nodeType === this.ELEMENT_NODE) {
+            const children = [];
+            node.childNodes.forEach((element) => {
+                children.push(element);
             });
-            cloned_node.textContent = "";
-            parent.append(cloned_node);
-            for (const cloned_child of cloned_children)
-                await this.execute(cloned_node, cloned_child, type);
+            node.textContent = "";
+            parent.append(node);
+            for (const child of children) await this.execute(node, child, type);
         }
     }
 }

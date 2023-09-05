@@ -1,7 +1,6 @@
-import { animateNode } from "./animateNode.js";
+import { animateNode } from "./src/animateNode.js";
 
 const div = document.querySelector(".lang");
 
-const a = animateNode;
+animateNode.char(document.body, div);
 animateNode.text(document.body, div);
-//animateNode.char(document.body, div);
