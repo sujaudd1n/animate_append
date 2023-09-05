@@ -26,4 +26,4 @@ animateNode.text(div, list)
 
 ## Demo
 
-Visit to see a working demo of both type of animation.
+Visit <https://sujaudd1n.github.io/animate_node/> to see a working demo of both type of animation.
