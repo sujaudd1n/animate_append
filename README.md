@@ -3,6 +3,8 @@
 Append an HTML node with type like animation.
 Implemented as ES6 module.
 
+![demo](assets/demo.gif)
+
 ## CDN
 
 - <https://cdn.jsdelivr.net/gh/sujaudd1n/animate_node/src/animateNode.min.js>
