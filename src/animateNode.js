@@ -52,7 +52,7 @@ class AnimateNode {
      */
     async text_animation(parent, node) {
         parent.append(node);
-        await new Promise((tmp) => setTimeout(tmp, this.speed));
+        await new Promise((tmp) => setTimeout(tmp, this.speed * 5));
     }
 
     /**
